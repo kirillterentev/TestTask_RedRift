@@ -720,8 +720,9 @@ GameObject:
   - component: {fileID: 552876890}
   - component: {fileID: 552876889}
   - component: {fileID: 552876888}
+  - component: {fileID: 552876891}
   m_Layer: 5
-  m_Name: Button3
+  m_Name: ButtonUpiter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -826,6 +827,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552876886}
   m_CullTransparentMesh: 0
+--- !u!114 &552876891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552876886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4383b179adecf8d458e3e99e194056ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _planetInfo: {fileID: 11400000, guid: 3ef31a072f6ccb54aa17cccc775e53c1, type: 2}
 --- !u!1 &658573439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,7 +1164,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Text
+  m_Text: Moon
 --- !u!222 &996816267
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1227,7 +1241,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Text
+  m_Text: Earth
 --- !u!222 &1023783384
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1248,8 +1262,9 @@ GameObject:
   - component: {fileID: 1102887196}
   - component: {fileID: 1102887195}
   - component: {fileID: 1102887194}
+  - component: {fileID: 1102887197}
   m_Layer: 5
-  m_Name: Button1
+  m_Name: ButtonEarth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1354,6 +1369,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102887192}
   m_CullTransparentMesh: 0
+--- !u!114 &1102887197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102887192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4383b179adecf8d458e3e99e194056ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _planetInfo: {fileID: 11400000, guid: 74e368a11e77c2242bee435eee7717c2, type: 2}
 --- !u!1 &1168629973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,8 +1394,9 @@ GameObject:
   - component: {fileID: 1168629977}
   - component: {fileID: 1168629976}
   - component: {fileID: 1168629975}
+  - component: {fileID: 1168629978}
   m_Layer: 5
-  m_Name: Button2
+  m_Name: ButtonMoon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1472,6 +1501,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1168629973}
   m_CullTransparentMesh: 0
+--- !u!114 &1168629978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168629973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4383b179adecf8d458e3e99e194056ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _planetInfo: {fileID: 11400000, guid: 6e69ffec8f895b24b94f851585bc8c2f, type: 2}
 --- !u!1 &1170459513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1879,7 +1921,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Text
+  m_Text: Upiter
 --- !u!222 &1502936907
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2180,7 +2222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ball: {fileID: 51478505}
-  _forcePercentGravity: 0.2
+  _forcePercentGravity: 0.3
+  _switchPlanetMenu: {fileID: 658573439}
 --- !u!4 &2079069281
 Transform:
   m_ObjectHideFlags: 0

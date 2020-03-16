@@ -7,6 +7,8 @@ public class GameController : MonoBehaviour
 	private Rigidbody2D _ball;
 	[SerializeField]
 	private float _forcePercentGravity;
+	[SerializeField]
+	private GameObject _switchPlanetMenu;
 
 	private float _leanForce;
 	private bool _isTouched;
@@ -15,10 +17,23 @@ public class GameController : MonoBehaviour
 	{
 		CalculateForce();
 		MessageBroker.Default.Receive<ClickOnScreenEvent>().Subscribe(x => SetTouchStatus(x.IsTouched));
+		MessageBroker.Default.Receive<SwitchPlanetEvent>().Subscribe(x => SwitchPlanet(x.Gravity, x.BgColor));
 	}
 
 	private void Update()
 	{
+#if UNITY_EDITOR
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			OpenMenu();
+		}
+#elif UNITY_ANDROID
+		if (Input.GetButtonDown("Cancel"))
+		{
+			OpenMenu();
+		}
+#endif
+
 		if (!_isTouched)
 		{
 			return;
@@ -33,7 +48,7 @@ public class GameController : MonoBehaviour
 #endif
 
 		Vector2 direction = (touchPosition - _ball.position).normalized;
-		_ball.AddForce(direction * _leanForce, ForceMode2D.Impulse);
+		_ball.AddForce(direction * _leanForce * _ball.gravityScale, ForceMode2D.Force);
 	}
 
 	private void SetTouchStatus(bool isTouched)
@@ -44,5 +59,25 @@ public class GameController : MonoBehaviour
 	private void CalculateForce()
 	{
 		_leanForce = Mathf.Abs(Physics2D.gravity.y * _forcePercentGravity);
+	}
+
+	private void SwitchPlanet(Vector2 gravity, Color bgColor)
+	{
+		Physics2D.gravity = gravity;
+		Camera.main.backgroundColor = bgColor;
+		CalculateForce();
+		CloseMenu();
+	}
+
+	private void OpenMenu()
+	{
+		_switchPlanetMenu.SetActive(true);
+		Time.timeScale = 0;
+	}
+
+	private void CloseMenu()
+	{
+		_switchPlanetMenu.SetActive(false);
+		Time.timeScale = 1;
 	}
 }
