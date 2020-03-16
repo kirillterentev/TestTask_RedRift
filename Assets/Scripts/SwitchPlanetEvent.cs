@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class SwitchPlanetEvent : MonoBehaviour
+public class SwitchPlanetEvent
 {
 	public Vector2 Gravity;
 	public Color BgColor;

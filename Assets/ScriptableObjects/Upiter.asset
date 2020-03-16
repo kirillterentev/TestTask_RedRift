@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Upiter
   m_EditorClassIdentifier: 
   Gravity: {x: 0, y: -24.5}
-  BackgroundColor: {r: 1, g: 0.6662315, b: 0, a: 0}
+  BackgroundColor: {r: 1, g: 0.6662315, b: 0, a: 1}

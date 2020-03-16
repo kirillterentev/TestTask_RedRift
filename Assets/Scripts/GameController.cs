@@ -1,5 +1,6 @@
 ﻿using UniRx;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -9,15 +10,25 @@ public class GameController : MonoBehaviour
 	private float _forcePercentGravity;
 	[SerializeField]
 	private GameObject _switchPlanetMenu;
+	[SerializeField]
+	private Text _collisionCountText;
+	[SerializeField]
+	private GameDataManager _gameDataManager;
 
+	private GameData _gameData;
 	private float _leanForce;
 	private bool _isTouched;
 
 	private void Start()
 	{
+		_gameData = _gameDataManager.GetData();
+		_collisionCountText.text = _gameData.CollisionCount.ToString();
+		SwitchPlanet(_gameData.Gravity, _gameData.Color);
 		CalculateForce();
+
 		MessageBroker.Default.Receive<ClickOnScreenEvent>().Subscribe(x => SetTouchStatus(x.IsTouched));
 		MessageBroker.Default.Receive<SwitchPlanetEvent>().Subscribe(x => SwitchPlanet(x.Gravity, x.BgColor));
+		MessageBroker.Default.Receive<PlatformTouchEvent>().Subscribe(x => CollisionPlatform());
 	}
 
 	private void Update()
@@ -63,6 +74,10 @@ public class GameController : MonoBehaviour
 
 	private void SwitchPlanet(Vector2 gravity, Color bgColor)
 	{
+		_gameData.Gravity = gravity;
+		_gameData.Color = bgColor;
+		_gameDataManager.SaveData(_gameData);
+
 		Physics2D.gravity = gravity;
 		Camera.main.backgroundColor = bgColor;
 		CalculateForce();
@@ -79,5 +94,12 @@ public class GameController : MonoBehaviour
 	{
 		_switchPlanetMenu.SetActive(false);
 		Time.timeScale = 1;
+	}
+
+	private void CollisionPlatform()
+	{
+		++_gameData.CollisionCount;
+		_collisionCountText.text = _gameData.CollisionCount.ToString();
+		_gameDataManager.SaveData(_gameData);
 	}
 }

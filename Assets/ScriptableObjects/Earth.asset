@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Earth
   m_EditorClassIdentifier: 
   Gravity: {x: 0, y: -9.8}
-  BackgroundColor: {r: 0.14070843, g: 0.9622642, b: 0.94037485, a: 0}
+  BackgroundColor: {r: 0.14070843, g: 0.9622642, b: 0.94037485, a: 1}

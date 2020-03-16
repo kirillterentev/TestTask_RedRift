@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Moon
   m_EditorClassIdentifier: 
   Gravity: {x: 0, y: -1.6}
-  BackgroundColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 0}
+  BackgroundColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
